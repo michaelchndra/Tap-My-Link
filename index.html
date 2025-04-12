@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michii | Bio Linkt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            min-height: 100vh;
+        }
+        
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .progress-bar {
+            transition: width 1s linear;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .watermark {
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <div class="container mx-auto px-4 py-12 max-w-md">
+        <!-- Profile Section -->
+        <header class="text-center mb-12">
+            <div class="flex justify-center mb-6">
+                <div class="relative">
+                    <img src="https://avatars.githubusercontent.com/u/110770006?v=4&size=64" alt="Michii" 
+                         class="rounded-full w-32 h-32 object-cover border-4 border-purple-400 shadow-lg animate-float">
+                    <div class="absolute -bottom-2 -right-2 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full p-2 shadow-md">
+                        <i class="fas fa-code text-white text-lg"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-300">
+                Michii
+            </h1>
+            
+            <p class="text-xl text-purple-200 mb-6">
+                Student • ML/AI • Enthusiast Data 
+            </p>
+            
+            <!-- Spotify Widget -->
+            <div id="spotify-widget" class="glass-card rounded-xl p-4 mb-8 border border-gray-700 hover:border-green-500 transition-colors duration-300">
+                <div class="flex items-center">
+                    <div class="mr-4 text-green-500">
+                        <i class="fab fa-spotify text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-xs uppercase tracking-wider text-purple-300 mb-1">Now Playing</div>
+                        <div id="spotify-track" class="font-semibold truncate">Loading...</div>
+                        <div id="spotify-artist" class="text-sm text-gray-400 truncate"></div>
+                        <div class="w-full bg-gray-700 rounded-full h-1.5 mt-2">
+                            <div id="spotify-progress" class="bg-green-500 h-1.5 rounded-full progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Links Section -->
+        <main class="space-y-4 mb-12">
+            <!-- GitHub -->
+            <a href="https://github.com/michaelchndra" target="_blank"
+               class="block bg-gradient-to-r from-gray-800 to-gray-700 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fab fa-github text-2xl mr-3"></i>
+                    <span>GitHub</span>
+                </div>
+            </a>
+            
+            
+            <a href="https://lune-mich.me/" target="_blank"
+               class="block bg-gradient-to-r from-purple-700 to-purple-600 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fas fa-globe text-2xl mr-3"></i>
+                    <span>My Website</span>
+                </div>
+            </a>
+            
+            
+            <a href="https://medium.com/@michii" target="_blank"
+               class="block bg-gradient-to-r from-gray-700 to-gray-800 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fab fa-medium text-2xl mr-3"></i>
+                    <span>Medium</span>
+                </div>
+            </a>
+            
+           
+            <a href="https://linkedin.com/in/michael-chndra" target="_blank"
+               class="block bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fab fa-linkedin text-2xl mr-3"></i>
+                    <span>LinkedIn</span>
+                </div>
+            </a>
+            
+            
+            <a href="https://twitter.com/itsmichii" target="_blank"
+               class="block bg-gradient-to-r from-black to-gray-800 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fa-brands fa-x-twitter text-2xl mr-3"></i>
+                    <span>X</span>
+                </div>
+            </a>
+            
+            
+            <a href="https://instagram.com/" target="_blank"
+               class="block bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fab fa-instagram text-2xl mr-3"></i>
+                    <span>Instagram</span>
+                </div>
+            </a>
+            
+            <a href="https://t.me/yourusername" target="_blank"
+               class="block bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fab fa-telegram text-2xl mr-3"></i>
+                    <span>Telegram Channel</span>
+                </div>
+            </a>
+            
+            <a href="mailto:your@email.com" target="_blank"
+               class="block bg-gradient-to-r from-pink-700 to-pink-600 rounded-xl p-5 text-center font-medium hover:shadow-lg transition-all duration-300 glass-card">
+                <div class="flex items-center justify-center">
+                    <i class="fas fa-envelope text-2xl mr-3"></i>
+                    <span>Email Me</span>
+                </div>
+            </a>
+        </main>
+
+        <footer class="flex flex-col items-center">
+            <div class="flex space-x-6 mb-4">
+                <a href="https://github.com/yourusername" target="_blank"
+                   class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/yourusername" target="_blank"
+                   class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://instagram.com/yourusername" target="_blank"
+                   class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"
+                   class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://t.me/yourusername" target="_blank"
+                   class="text-gray-400 hover:text-white text-2xl transition-colors">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+            <div class="watermark text-gray-500 text-sm">
+                © 2023 Michii. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let progressInterval = null;
+<<<<<<< HEAD
+        const SPOTIFY_API_URL = 'bio-linkk-michaelchndras-projects.vercel.app';
+=======
+        const SPOTIFY_API_URL = 'https://biolink-two-dusky.vercel.app';
+>>>>>>> 34c660b (Fix API Endpoint)
+        
+        async function fetchNowPlaying() {
+            try {
+                const response = await fetch(`${SPOTIFY_API_URL}/now-playing`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                if (data.isPlaying) {
+                    updateTrackInfo(data);
+                } else {
+                    showNotPlaying();
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+                showErrorState();
+            }
+        }
+
+        function updateTrackInfo(data) {
+            if (progressInterval) {
+                clearInterval(progressInterval);
+            }
+            
+            document.getElementById('spotify-track').textContent = data.title;
+            document.getElementById('spotify-artist').textContent = data.artist;
+            
+            let progress = data.progress_ms || 0;
+            const duration = data.duration_ms || 180000;
+            
+            updateProgressBar(progress, duration);
+            
+            progressInterval = setInterval(() => {
+                progress += 1000;
+                if (progress >= duration) {
+                    clearInterval(progressInterval);
+                    fetchNowPlaying();
+                }
+                updateProgressBar(progress, duration);
+            }, 1000);
+        }
+
+        function updateProgressBar(progress, duration) {
+            const progressPercent = (progress / duration) * 100;
+            document.getElementById('spotify-progress').style.width = `${progressPercent}%`;
+        }
+
+        function showNotPlaying() {
+            document.getElementById('spotify-track').textContent = "Not currently playing";
+            document.getElementById('spotify-artist').textContent = "Spotify";
+            document.getElementById('spotify-progress').style.width = "0%";
+            if (progressInterval) clearInterval(progressInterval);
+        }
+
+        function showErrorState() {
+            document.getElementById('spotify-track').textContent = "Error loading track";
+            document.getElementById('spotify-artist').textContent = "Try again later";
+            document.getElementById('spotify-progress').style.width = "0%";
+            if (progressInterval) clearInterval(progressInterval);
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchNowPlaying();
+            setInterval(fetchNowPlaying, 30000);
+        });
+    </script>
+</body>
+</html>

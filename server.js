@@ -1,26 +1,27 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const { 
-  SPOTIFY_CLIENT_ID, 
-  SPOTIFY_CLIENT_SECRET, 
-  SPOTIFY_REFRESH_TOKEN 
+const {
+  SPOTIFY_CLIENT_ID,
+  SPOTIFY_CLIENT_SECRET,
+  SPOTIFY_REFRESH_TOKEN
 } = process.env;
 
-// Middleware to enable CORS
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
+// Serve static files (HTML, CSS, JS) from /public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Default route untuk /
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const getAccessToken = async () => {
-  const response = await axios.post('https://accounts.spotify.com/api/token', 
+  const response = await axios.post('https://accounts.spotify.com/api/token',
     new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token: SPOTIFY_REFRESH_TOKEN
@@ -30,6 +31,7 @@ const getAccessToken = async () => {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     });
+
   return response.data.access_token;
 };
 
@@ -55,9 +57,9 @@ app.get('/now-playing', async (req, res) => {
     };
 
     res.json(data);
-  } catch (error) {
-    console.error('Spotify API error:', error.message);
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    console.error('Spotify API error:', err.message);
+    res.status(500).json({ error: err.message });
   }
 });
 
